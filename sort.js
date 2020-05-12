@@ -1,5 +1,5 @@
 var testArray = new Array();
-testArray = ["ghghsadasd", "aase yuuiuooi", "a", "bgt", "c", "ghghghgh bbbbbb"];
+testArray = ["tavisca", "a cxloyalty company", "the", "to", "a", "connexions"];
 testArray.sort(function (a, b) { return a.length - b.length; });
 console.log("Array sorted on length : " + testArray);
 testArray.reverse();
