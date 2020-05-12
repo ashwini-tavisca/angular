@@ -1,0 +1,61 @@
+<div class="container">
+    <form name="frmprd">
+        <div class="form-group">
+            <label>Product Id</label>
+            <!--Data Binding Two Way with ngModel-->
+            <input type="text" name="ProductId" [(ngModel)]="product.ProductId" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Product Name</label>
+            <input type="text" name="ProductName" [(ngModel)]="product.ProductName" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Price</label>
+            <input type="text" name="Price" [(ngModel)]="product.Price" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Category</label>
+            <select name="Category" [(ngModel)]="product.Category" class="form-control">
+        <option *ngFor="let c of cats" value="{{c}}">{{c}}</option>
+      </select>
+        </div>
+        <div class="form-group">
+            <!--Event Binding (click)-->
+            <input type="button" value="New" class="btn btn-warning" (click)="clear()">
+            <input type="button" value="Save" class="btn btn-success" (click)="save()">
+        </div>
+    </form>
+</div>
+<div class="container">
+  <input #search placeholder="Enter product name">
+  <button (click)="searchProduct(search.value); search.value = ''">Search</button><br>
+  <table class="table table-striped table-bordered table-dark">
+    <tbody>
+        <tr *ngFor="let prd of searchedProduct">
+            <td *ngFor="let h of headers">
+                {{prd[h]}}
+            </td>
+        </tr>
+    </tbody>
+  </table>
+  <input type="radio" id="sort" name="sortAndReverse" value="sort" (click) = "sortByProductName()">
+  <label for="sort">Sort</label><br>
+  <input type="radio" id="reverse" name="sortAndReverse" value="reverse" (click) = "reverseProductList()">
+  <label for="reverse">Reverse</label><br>
+
+  <table class="table table-striped table-bordered table-dark">
+        <thead>
+            <tr>
+                <th *ngFor="let h of headers">{{h}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let prd of products, let prdindex = index" (click)="getSelectedProduct(prd)">
+                <td *ngFor="let h of headers">
+                    {{prd[h]}}
+                </td>
+                <button (click) = "deleteProduct(prdindex)">Delete</button>
+            </tr>
+        </tbody>
+  </table>
+</div>
