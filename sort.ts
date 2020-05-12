@@ -1,5 +1,5 @@
 let testArray = new Array<string>();
-testArray = ["ghghsadasd", "aase yuuiuooi", "a", "bgt", "c", "ghghghgh bbbbbb"];
+testArray = ["tavisca", "a cxloyalty company", "the", "to", "a", "connexions"];
 
 testArray.sort((a,b) => a.length - b.length);
 console.log("Array sorted on length : " + testArray)
